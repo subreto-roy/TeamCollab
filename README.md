@@ -1,5 +1,6 @@
 1.Clone the Repository:
 git clone https://github.com/subreto-roy/TeamCollab.git
+
 cd TeamCollab
 
 2.Install Dependencies:
