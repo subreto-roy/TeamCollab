@@ -1,4 +1,4 @@
-Sure! Here is the README file content including setup instructions and API documentation:
+
 
 ---
 
@@ -459,4 +459,3 @@ This API provides endpoints to manage users, projects, tasks, and comments. Belo
 
 ---
 
-Feel free to copy this documentation into your README file or import it into Postman to create a collection for easier API testing.
