@@ -1,35 +1,51 @@
-1.Clone the Repository:
+# TeamCollab
 
+## Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/subreto-roy/TeamCollab.git
-
 cd TeamCollab
+```
 
-2.Install Dependencies:
+### 2. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-3.Run Migrations
+### 3. Run Migrations
+
+```bash
 python manage.py migrate
+```
 
-4.Create a Superuser
+### 4. Create a Superuser
+
+```bash
 python manage.py createsuperuser
+```
 
-5.Run Server
+### 5. Run Server
+
+```bash
 python manage.py runserver
+```
 
-API Documentation
+## API Documentation
 
 This API provides endpoints to manage users, projects, tasks, and comments. Below are the available endpoints with their respective methods and descriptions.
 
+### Authentication
 
+#### Register User
 
-Register User:
-
-Endpoint:http://127.0.0.1:8000/api/users/register/
-- Method: POST
-- Description: Register a new user.
-- Request Body:
-  json
+- **Endpoint:** `/api/users/register/`
+- **Method:** `POST`
+- **Description:** Register a new user.
+- **Request Body:**
+  ```json
   {
       "username": "string",
       "email": "string",
@@ -37,9 +53,9 @@ Endpoint:http://127.0.0.1:8000/api/users/register/
       "first_name": "string",
       "last_name": "string"
   }
-  
-- Response:
-  json
+  ```
+- **Response:**
+  ```json
   {
       "id": 1,
       "username": "string",
@@ -48,7 +64,7 @@ Endpoint:http://127.0.0.1:8000/api/users/register/
       "last_name": "string",
       "date_joined": "datetime"
   }
-
+  ```
 
 #### Login User
 
@@ -352,7 +368,9 @@ Endpoint:http://127.0.0.1:8000/api/users/register/
   [
       {
           "id": 1,
-          "content": "string",
+         
+
+ "content": "string",
           "user": 1,
           "task": 1,
           "created_at": "datetime"
@@ -370,9 +388,7 @@ Endpoint:http://127.0.0.1:8000/api/users/register/
   ```json
   {
       "content": "string"
- 
-
- }
+  }
   ```
 - **Response:**
   ```json
@@ -439,6 +455,5 @@ Endpoint:http://127.0.0.1:8000/api/users/register/
 - Use tools like Postman to test these endpoints.
 - The API follows REST principles and returns appropriate HTTP status codes based on the outcome of the request.
 
----
 
-Feel free to copy this documentation into your README file or import it into Postman to create a collection for easier API testing.
+
