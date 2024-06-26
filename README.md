@@ -451,11 +451,5 @@ This API provides endpoints to manage users, projects, tasks, and comments. Belo
 - **Request Header:** `Authorization: Bearer <access_token>`
 - **Response:** `204 No Content`
 
-### Notes
-
-- Ensure you include the `Authorization: Bearer <access_token>` header in requests to protected endpoints.
-- Use tools like Postman to test these endpoints.
-- The API follows REST principles and returns appropriate HTTP status codes based on the outcome of the request.
-
 ---
 
