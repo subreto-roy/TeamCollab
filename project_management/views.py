@@ -1,10 +1,12 @@
-from rest_framework import generics, status
-from rest_framework.response import Response
+from rest_framework import generics, permissions
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.contrib.auth.models import User
-from .serializers import RegisterSerializer, UserSerializer, CustomTokenObtainPairSerializer
+from .serializers import RegisterSerializer, UserSerializer, CustomTokenObtainPairSerializer,ProjectSerializer, TaskSerializer, CommentSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
+from .models import Project, Task, Comment
 
+
+#User Views
 class RegisterUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = (AllowAny,)
@@ -23,14 +25,10 @@ class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
         self.check_object_permissions(self.request, obj)
         return obj
 
-
-from rest_framework import generics, permissions
-from .models import Project, Task, Comment
-from .serializers import ProjectSerializer, TaskSerializer, CommentSerializer
-
 # Project Views
 class ProjectListView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
+    
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -39,11 +37,9 @@ class ProjectDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-# Task Views
-from rest_framework import generics, permissions
-from .models import Task, Project
-from .serializers import TaskSerializer
 
+
+# Task Views
 class TaskListCreateView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -64,13 +60,9 @@ class TaskDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 # Comment Views
-from rest_framework import generics, permissions
-from .models import Comment, Task
-from .serializers import CommentSerializer
-
 class CommentListCreateView(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         task_id = self.kwargs['task_id']
@@ -84,4 +76,4 @@ class CommentListCreateView(generics.ListCreateAPIView):
 class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]

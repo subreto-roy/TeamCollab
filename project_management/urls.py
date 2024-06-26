@@ -11,12 +11,11 @@ urlpatterns = [
     path('api/projects/', ProjectListView.as_view(), name='project-list'),
     path('api/projects/<int:pk>/', ProjectDetailView.as_view(), name='project-detail'),
 
-    # Task URLs
     path('api/projects/<int:project_id>/tasks/', TaskListCreateView.as_view(), name='task-list-create'),
     path('api/tasks/<int:pk>/', TaskDetailView.as_view(), name='task-detail'),
 
     
-    # Comment URLs
+ 
     path('api/tasks/<int:task_id>/comments/', CommentListCreateView.as_view(), name='comment-list-create'),
     path('api/comments/<int:pk>/', CommentDetailView.as_view(), name='comment-detail'),
 ]
